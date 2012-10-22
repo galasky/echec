@@ -187,27 +187,27 @@ void	arbre::start(int profondeur, std::string plateau)
 
 int	minimax(t_noeud *n, int gen, int profondeur)
 {
-  int	val;
+  int   val;
 
   val = n->valeur;
   while (n)
     {
       if (n->chil)
-	{
-	  val = minimax(n->chil, gen * -1, profondeur + 1);
-	  n->valeur = val;
-	}
-      n->chil = NULL;
+        {
+          n->valeur = minimax(n->chil, gen * -1, profondeur + 1);
+          if (n->prev == NULL)
+            val = n->valeur;
+        }
       if (gen == 1)
-	{
-	  if (val < n->valeur)
-	    val = n->valeur;
-	}
+        {
+          if (val < n->valeur)
+            val = n->valeur;
+        }
       else
-	{
-	  if (val > n->valeur)
-	    val = n->valeur;
-	}
+        {
+          if (val > n->valeur)
+            val = n->valeur;
+        }
       n = n->next;
     }
   return (val);

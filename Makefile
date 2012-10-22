@@ -2,7 +2,7 @@ NAME		=	echecs
 
 CXXFLAGS	=	-I include/ -Wextra -Wall -fpermissive
 
-LDFLAGS		=	-lsfml-window -lsfml-graphics -lsfml-audio -lm
+LDFLAGS		=	-lm
 
 CC		=	g++
 RM		=	rm -fv
